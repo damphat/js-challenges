@@ -9,14 +9,14 @@ describe('deepIterate(...args)', () => {
         );
     });
 
-    it('iterates values inside arrays', function() {
+    it('deeply iterates values inside arrays', function() {
         assert.deepStrictEqual(
             Array.from(deepIterate([[1], [2,3]])),
             [1,2,3]
         );
     });
 
-    it('iterates values return from generators', function() {
+    it('deeply iterates values return from generators', function() {
         function *foo() {
             yield 1;
             yield 2;
@@ -36,7 +36,7 @@ describe('deepIterate(...args)', () => {
         );
     });
 
-    it('iterates values returned from functions', function() {
+    it('deeply iterates values returned from functions', function() {
         assert.deepStrictEqual(
             Array.from(deepIterate(() => () => [1,[2],3])),
             [1,2,3]
